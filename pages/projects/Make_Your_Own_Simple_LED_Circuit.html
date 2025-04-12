@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>अपना सरल LED सर्किट बनाएं</title>
+  <style>
+    body {
+      background-color: #fffbe6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.8;
+      color: #333;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #6b4f1d;
+    }
+    .section {
+      background-color: #fff8dc;
+      border: 1px solid #d2b48c;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    .note {
+      background-color: #fffae6;
+      border-left: 5px solid #f4a300;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #6b4f1d;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .back-button:hover {
+      background-color: #8b5e2e;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>प्रोजेक्ट: अपना सरल LED सर्किट बनाएं</h1>
+
+  <div class="section">
+    <h2>उद्देश्य</h2>
+    <ul>
+      <li>बैटरी, स्विच, रेसिस्टर और LED का उपयोग करके एक बुनियादी विद्युत परिपथ बनाना।</li>
+      <li>समझना कि एक साधारण सर्किट कैसे काम करता है और स्विच उसे कैसे नियंत्रित करता है।</li>
+      <li>LED और रेसिस्टर जैसे इलेक्ट्रॉनिक घटकों की भूमिका जानना।</li>
+    </ul>
+    <p><strong>लक्ष्य दर्शक:</strong> कक्षा 8 के छात्र</p>
+  </div>
+
+  <div class="section">
+    <h2>ज़रूरी सामान</h2>
+    <ul>
+      <li>ब्रेडबोर्ड (Breadboard)</li>
+      <li>9V बैटरी</li>
+      <li>9V बैटरी स्नैप कनेक्टर</li>
+      <li>LED (कोई भी रंग, 5mm)</li>
+      <li>रेसिस्टर: 470 ओम (पीला-बैंगनी-भूरा-सुनहरा)</li>
+      <li>टैक्टाइल पुश बटन या स्लाइड स्विच</li>
+      <li>जम्पर तार (male-to-male)</li>
+    </ul>
+    <img src="images/led_project_materials.jpg" alt="सामग्री: ब्रेडबोर्ड, बैटरी, LED, स्विच, रेसिस्टर आदि">
+  </div>
+
+  <div class="section">
+    <h2>सर्किट डायग्राम</h2>
+    <p>बैटरी (+) → स्विच → रेसिस्टर → LED (+) → LED (−) → बैटरी (−)</p>
+    <img src="images/led_circuit_diagram.jpg" alt="सरल सर्किट डायग्राम">
+  </div>
+
+  <div class="section">
+    <h2>प्रोजेक्ट करने का तरीका</h2>
+    <ol>
+      <li>ब्रेडबोर्ड को समझें – पंक्तियाँ और पावर रेल्स देखें।</li>
+      <li>बैटरी स्नैप कनेक्टर को 9V बैटरी से जोड़ें। लाल तार को (+) और काले को (−) पॉवर रेल से जम्पर तार से जोड़ें।</li>
+      <li>स्विच को ब्रेडबोर्ड में लगाएं।</li>
+      <li>रेसिस्टर को स्विच की पंक्ति से एक खाली पंक्ति तक लगाएं।</li>
+      <li>LED की लंबी टांग (एनोड) को रेसिस्टर की पंक्ति में और छोटी टांग (कैथोड) को दूसरी पंक्ति में लगाएं।</li>
+      <li>जम्पर तार से पॉवर रेल (+) को स्विच की पंक्ति से और LED (−) को (−) रेल से जोड़ें।</li>
+      <li>बैटरी को जोड़ें और स्विच ऑन करें – LED जलनी चाहिए!</li>
+    </ol>
+    <img src="images/led_breadboard_setup.jpg" alt="ब्रेडबोर्ड पर LED सर्किट सेटअप">
+  </div>
+
+  <div class="section">
+    <h2>समस्या निवारण</h2>
+    <ul>
+      <li>बैटरी चार्ज और सही तरीके से जुड़ी होनी चाहिए।</li>
+      <li>LED की पोलैरिटी सही हो (लंबी टांग +)।</li>
+      <li>जम्पर तार सही पंक्तियों में लगे हों।</li>
+      <li>रेसिस्टर सही मान और स्थिति में हो।</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>यह कैसे काम करता है?</h2>
+    <ul>
+      <li><strong>बैटरी:</strong> ऊर्जा का स्रोत।</li>
+      <li><strong>स्विच:</strong> सर्किट को ऑन/ऑफ करने वाला नियंत्रक।</li>
+      <li><strong>LED:</strong> विद्युत प्रवाह से प्रकाश उत्पन्न करती है (पोलैरिटी ज़रूरी)।</li>
+      <li><strong>रेसिस्टर:</strong> करंट को सीमित करता है ताकि LED सुरक्षित रहे।</li>
+      <li><strong>ब्रेडबोर्ड:</strong> बिना सोल्डरिंग घटकों को जोड़ने का माध्यम।</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>सुरक्षा निर्देश</h2>
+    <ul>
+      <li>केवल कम वोल्टेज (जैसे 9V) वाली बैटरी का उपयोग करें।</li>
+      <li>शॉर्ट सर्किट से बचें – (+) और (−) सिरों को सीधे न जोड़ें।</li>
+      <li>LED को सही दिशा में और रेसिस्टर के साथ ही जोड़ें।</li>
+      <li>प्रोजेक्ट वयस्क की निगरानी में करें।</li>
+    </ul>
+    <div class="note">
+      यह एक मजेदार और शैक्षिक प्रोजेक्ट है जो छात्रों को इलेक्ट्रॉनिक्स की दुनिया से जोड़ता है!
+    </div>
+  </div>
+
+  <a href="../project_library.html" class="back-button">← वापस प्रोजेक्ट्स पर</a>
+
+</body>
+</html>
