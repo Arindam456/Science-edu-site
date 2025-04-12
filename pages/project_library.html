@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Science Project Library</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Back button styling */
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #337ab7;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 999;
+      text-decoration: none;
+    }
+    .back-button:hover {
+      background-color: #286090;
+    }
+
+    .project-container {
+      max-width: 960px;
+      margin: 80px auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .project-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .project-card:hover {
+      transform: scale(1.01);
+    }
+
+    .project-image {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .project-title {
+      background-color: green;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back Button -->
+  <a href="../index.html" class="back-button">← Back</a>
+
+  <h1 style="text-align:center; color:#337ab7;">Science Project Library</h1>
+
+  <div class="project-container">
+
+    <!-- Project Card 1 -->
+    <div class="project-card" onclick="location.href='projects/Magic_of_Static_Electricity.html'">
+      <img src="images/Magic_of_Static_Electricity.jpeg" alt="Magic of Static Electricity" class="project-image">
+      <div class="project-title">Magic of Static Electricity</div>
+    </div>
+ 
+    <!-- Project Card 2 -->
+    <div class="project-card" onclick="location.href='projects/Detecting_Starch_in_Potato.html'">
+      <img src="images/Detecting_Starch_in_Potato.png" alt="Detecting Starch in Potato" class="project-image">
+      <div class="project-title">Detecting Starch in Potato</div>
+    </div>
+
+    <!-- Project Card 3 -->
+    <div class="project-card" onclick="location.href='projects/Make_Your_Own_Simple_LED_Circuit.html'">
+      <img src="images/Make_Your_Own_Simple_LED_Circuit.png" alt="Make Your Own Simple LED Circuit" class="project-image">
+      <div class="project-title">Make Your Own Simple LED Circuit</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
