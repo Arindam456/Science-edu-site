@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Science Gyan</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .container {
+      max-width: 960px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      position: relative;
+    }
+    .title-container {
+      background-color: #f0f8ff;
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    h1 {
+      color: #337ab7;
+      margin: 0;
+    }
+    .paragraph {
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    .signup-button, .logout-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      z-index: 1000;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .signup-button {
+      background-color: #007bff;
+    }
+    .signup-button:hover {
+      background-color: #0056b3;
+    }
+    .logout-button {
+      background-color: #d9534f;
+    }
+    .logout-button:hover {
+      background-color: #c9302c;
+    }
+    .full-width-buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 60px;
+    }
+    .full-width-button {
+      width: 100%;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      background-color: #5cb85c;
+      color: white;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .full-width-button:hover {
+      background-color: #4cae4c;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: #f4f4f4;
+      font-size: 0.9em;
+      border-radius: 0 0 8px 8px;
+    }
+    .footer a {
+      color: #f4f4f4;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .footer p {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="signup.html" class="signup-button" id="signupBtn">Signup</a>
+    <button class="logout-button" id="logoutBtn" style="display: none;">Logout</button>
+
+    <div class="title-container">
+      <h1>Science Gyan</h1>
+    </div>
+
+    <p class="paragraph">
+      विज्ञान हमारे जीवन का एक अभिन्न अंग है, जिसने हमारे दुनिया को समझने और उसमें सुधार करने के तरीके में क्रांति ला दी है।
+      यह व्यवस्थित ज्ञान और प्राकृतिक और भौतिक दुनिया के बारे में समझने की एक प्रक्रिया है, जो अवलोकन, प्रयोग और विश्लेषण पर आधारित है।
+      विज्ञान ने हमें अनगिनत खोजें और तकनीकी प्रगति प्रदान की हैं, जिससे हमारा जीवन आसान, स्वस्थ और अधिक सुविधाजनक बन गया है।
+
+      स्वास्थ्य सेवा में, विज्ञान ने टीकों, एंटीबायोटिक दवाओं और उन्नत नैदानिक उपकरणों का विकास किया है, जिससे लाखों लोगों की जान बची है और जीवन की गुणवत्ता में सुधार हुआ है।
+      कृषि में, वैज्ञानिक अनुसंधान ने फसल की पैदावार बढ़ाने, कीटों को नियंत्रित करने और खाद्य उत्पादन की स्थिरता में सुधार करने के लिए नई तकनीकों का नेतृत्व किया है।
+      प्रौद्योगिकी में, विज्ञान नवाचार की आधारशिला रहा है, जिससे कंप्यूटर, इंटरनेट और स्मार्टफोन जैसे उपकरणों का निर्माण हुआ है, जिन्होंने हमारे संचार, काम करने और सीखने के तरीके को बदल दिया है।
+
+      इसके अलावा, विज्ञान हमें ब्रह्मांड, हमारे ग्रह और स्वयं के बारे में गहरी जानकारी प्रदान करता है।
+      यह प्राकृतिक दुनिया के नियमों को समझने में हमारी मदद करता है, जलवायु परिवर्तन, जैव विविधता हानि और प्रदूषण जैसी महत्वपूर्ण चुनौतियों का समाधान करने के लिए ज्ञान प्रदान करता है।
+      वैज्ञानिक अनुसंधान जिज्ञासा को बढ़ावा देता है, आलोचनात्मक सोच कौशल विकसित करता है, और अगली पीढ़ी के नवोन्मेषकों और समस्या समाधानकर्ताओं को प्रेरित करता है।
+      संक्षेप में, विज्ञान प्रगति, समृद्धि और हमारे भविष्य के लिए आवश्यक है।
+    </p>
+
+    <div class="full-width-buttons-container">
+      <button class="full-width-button" onclick="location.href='pages/project_library.html'">Science Project Library</button>
+    </div>
+ 
+    <div class="footer">
+      <a href="#">About Us</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Service</a> |
+      <a href="#">FAQ</a> |
+      <a href="#">Contact Us</a>
+      <p>&copy; 2025 Science Gyan. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDkm8lxJkBba1XJb2CFwedgA2eebSl8KcU",
+      authDomain: "science-edu-5fa70.firebaseapp.com",
+      projectId: "science-edu-5fa70",
+      storageBucket: "science-edu-5fa70.appspot.com",
+      messagingSenderId: "502291763527",
+      appId: "1:502291763527:web:7e50b322aec36d6bd27c62"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const signupBtn = document.getElementById('signupBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    // Auth check
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        signupBtn.style.display = 'none';
+        logoutBtn.style.display = 'block';
+      } else {
+        signupBtn.style.display = 'block';
+        logoutBtn.style.display = 'none';
+      }
+    });
+
+    // Logout
+    logoutBtn.addEventListener('click', async () => {
+      await signOut(auth);
+      alert('Logout successful!');
+    });
+  </script>
+</body>
+</html>

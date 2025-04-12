@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Science Gyan</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .signup-container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #337ab7;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #337ab7;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #286090;
+    }
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .login-link a {
+      color: #337ab7;
+      text-decoration: none;
+    }
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 3px;
+    }
+
+    /* Popup Style */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .popup-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .popup-content h3 {
+      margin-bottom: 15px;
+      color: #337ab7;
+    }
+    .popup-content button {
+      background-color: #337ab7;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-container">
+    <h2>Sign Up for Science Gyan</h2>
+    <form id="signupForm">
+      <div class="form-group">
+        <label for="username">Username (Name and Number)</label>
+        <input type="text" id="username" required>
+        <div class="error-message" id="usernameError"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+        <div class="error-message" id="emailError"></div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password (8 digits minimum)</label>
+        <input type="password" id="password" required>
+        <div class="error-message" id="passwordError"></div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" required>
+        <div class="error-message" id="confirmPasswordError"></div>
+      </div>
+      <button type="submit">Sign Up</button>
+    </form>
+    <div class="login-link">
+      Already have an account? <a href="login.html">Login</a>
+    </div>
+  </div>
+
+  <!-- POPUP -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h3 id="popupMessage">Signup successful!</h3>
+      <button onclick="redirectToHome()">OK</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDkm8lxJkBba1XJb2CFwedgA2eebSl8KcU",
+      authDomain: "science-edu-5fa70.firebaseapp.com",
+      projectId: "science-edu-5fa70",
+      storageBucket: "science-edu-5fa70.firebasestorage.app",
+      messagingSenderId: "502291763527",
+      appId: "1:502291763527:web:7e50b322aec36d6bd27c62"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    const popup = document.getElementById('popup');
+    const popupMessage = document.getElementById('popupMessage');
+
+    document.getElementById('signupForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      const usernameError = document.getElementById('usernameError');
+      const emailError = document.getElementById('emailError');
+      const passwordError = document.getElementById('passwordError');
+      const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+      usernameError.textContent = '';
+      emailError.textContent = '';
+      passwordError.textContent = '';
+      confirmPasswordError.textContent = '';
+
+      let isValid = true;
+      const usernameRegex = /^[a-zA-Z]+\d+$/;
+
+      if (!usernameRegex.test(username)) {
+        usernameError.textContent = 'Username must contain letters followed by numbers.';
+        isValid = false;
+      }
+
+      if (password.length < 8) {
+        passwordError.textContent = 'Password must be at least 8 characters.';
+        isValid = false;
+      }
+
+      if (password !== confirmPassword) {
+        confirmPasswordError.textContent = 'Passwords do not match.';
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        await updateProfile(user, { displayName: username });
+        await set(ref(db, 'users/' + user.uid), { username, email });
+
+        localStorage.setItem('isLoggedIn', 'true'); // Mark user as logged in
+        popupMessage.textContent = 'Signup Successful!';
+        popup.style.display = 'flex';
+      } catch (error) {
+        popupMessage.textContent = 'Signup Failed: ' + getFirebaseErrorMessage(error.code);
+        popup.style.display = 'flex';
+      }
+    });
+
+    function getFirebaseErrorMessage(errorCode) {
+      switch (errorCode) {
+        case 'auth/email-already-in-use': return 'This email is already in use.';
+        case 'auth/invalid-email': return 'Invalid email address.';
+        case 'auth/weak-password': return 'Password is too weak.';
+        default: return 'An unexpected error occurred.';
+      }
+    }
+
+    window.redirectToHome = function () {
+      document.getElementById('popup').style.display = 'none';
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
